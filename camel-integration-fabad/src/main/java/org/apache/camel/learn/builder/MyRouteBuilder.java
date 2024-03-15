@@ -23,12 +23,6 @@ public class MyRouteBuilder extends RouteBuilder {
     public void configure() throws Exception {
         properties.load(getClass().getClassLoader().getResourceAsStream("application.properties"));
 
-        /*String ruta = "src/datos";
-        String filename = "cardsclients.csv";
-        String databaseJDBCConnection = "jdbc:postgresql://localhost:5433/postgres";
-        String databaseUserConnection = "postgres";
-        String databasePasswordConnection = "admin";*/
-
         String ruta = properties.getProperty("ruta");
 
         String filename = properties.getProperty("filename");
@@ -36,7 +30,7 @@ public class MyRouteBuilder extends RouteBuilder {
         String databaseUserConnection = properties.getProperty("database.user");
         String databasePasswordConnection = properties.getProperty("database.password");
 
-        String uri= "file:"+ruta+"?noop=True&fileName="+filename+"&delay=3000";
+        String uri= "file:"+ruta+"?noop=True&fileName="+filename+"&delay=300000";
         //"file:src/datos?noop=True&fileName=cardsclients.csv&delay=3000"
 
         from(uri)
